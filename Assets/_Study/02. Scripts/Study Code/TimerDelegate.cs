@@ -1,17 +1,18 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TimerDelegate : MonoBehaviour
 {
     public delegate void TimerStart();
-    public TimerStart onTimerStart; // 타이머 시작 델리게이트
+    public static event TimerStart onTimerStart; // 타이머 시작 델리게이트
 
     public delegate void TimerStop();
-    public TimerStop onTimerStop; // 타이머 멈춤 델리게이트
+    public static event TimerStop onTimerStop; // 타이머 멈춤 델리게이트
     
     public delegate void TimerEnd();
-    public TimerEnd onTimerEnd; // 타이머 종료 델리게이트
-    
+    public static event TimerEnd onTimerEnd; // 타이머 종료 델리게이트
+
     public KeyCode keyCode = KeyCode.Space; // 타이머 멈추는 키
 
     public float timer = 5f;
@@ -34,9 +35,7 @@ public class TimerDelegate : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(keyCode))
-        {
-            onTimerStop?.Invoke();
-        }
+            OnTimerStop();
     }
 
     IEnumerator TimerRoutine()
@@ -55,6 +54,11 @@ public class TimerDelegate : MonoBehaviour
         }
     }
 
+    public void OnTimerStop() // 델리게이트를 실행하는 트리거 함수
+    {
+        onTimerStop?.Invoke();
+    }
+
     private void StartEvent()
     {
         Debug.Log("폭탄이 설치되었습니다.");
@@ -62,7 +66,6 @@ public class TimerDelegate : MonoBehaviour
 
     private void StopEvent()
     {
-        isTimer = false;
         StopAllCoroutines();
         Debug.Log("폭탄이 해체되었습니다.");
     }

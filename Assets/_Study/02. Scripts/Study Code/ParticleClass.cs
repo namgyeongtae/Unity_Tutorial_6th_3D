@@ -1,23 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ParticleClass : MonoBehaviour
 {
-    public TimerDelegate timer;
-    
-    public ParticleSystem ps;
-
-    public void Play()
-    {
-        
-    }
-    
     void Awake()
     {
-        timer.onTimerEnd += Explosion;
+        TimerDelegate.onTimerEnd += Explosion;
     }
     
     public void Explosion()
     {
-        ps.Play();
+        Debug.Log("폭발 이펙트");
     }
 }

@@ -2,31 +2,25 @@ using UnityEngine;
 
 public class UIClass : MonoBehaviour
 {
-    public TimerDelegate timer;
-    
-    public GameObject startUI;
-    public GameObject stopUI;
-    public GameObject endUI;
-
     void Awake()
     {
-        timer.onTimerStart += StartUI;
-        timer.onTimerStop += StopUI;
-        timer.onTimerEnd += EndUI;
+        TimerDelegate.onTimerStart += StartUI;
+        TimerDelegate.onTimerStop += StopUI;
+        TimerDelegate.onTimerEnd += EndUI;
     }
     
     public void StartUI()
     {
-        
+        Debug.Log("타이머 UI On");
     }
     
     public void StopUI()
     {
-        
+        Debug.Log("폭탄 해제 UI On");
     }
     
     public void EndUI()
     {
-        
+        Debug.Log("실패 UI On");
     }
 }
