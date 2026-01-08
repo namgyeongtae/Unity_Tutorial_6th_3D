@@ -17,7 +17,7 @@ public class StudyCC : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
     }
-
+    
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
