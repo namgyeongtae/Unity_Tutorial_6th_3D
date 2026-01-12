@@ -18,6 +18,7 @@ public class FieldCamera : MonoBehaviour
             return;
         
         Vector3 destination = target.position + offset; // 따라갈 포지션
+
         Vector3 smoothedPosition = Vector3.Lerp(transform.localPosition, destination, smoothSpeed * Time.deltaTime); // 부드럽게 이동
 
         smoothedPosition.x = Mathf.Clamp(smoothedPosition.x, minBounds.x, maxBounds.x); // x축 영역 제한
