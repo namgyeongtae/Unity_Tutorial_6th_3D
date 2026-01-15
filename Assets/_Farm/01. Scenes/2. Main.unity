@@ -15972,6 +15972,7 @@ Transform:
   - {fileID: 193012117}
   - {fileID: 887036065}
   - {fileID: 157097963}
+  - {fileID: 3176376754092579096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239504822
@@ -19596,7 +19597,7 @@ GameObject:
   - component: {fileID: 1499064707}
   - component: {fileID: 1499064706}
   m_Layer: 5
-  m_Name: Drag Slot
+  m_Name: Drag Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26373,14 +26374,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3176376754092579097}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 67.38, y: 0.05, z: 30.53}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3176376755282423158}
   - {fileID: 3176376754486202214}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1224502475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3176376754092579097
 GameObject:
@@ -31508,4 +31509,3 @@ SceneRoots:
   - {fileID: 1126960643}
   - {fileID: 1224502475}
   - {fileID: 286216512}
-  - {fileID: 3176376754092579096}

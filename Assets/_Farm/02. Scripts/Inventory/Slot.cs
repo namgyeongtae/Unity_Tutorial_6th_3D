@@ -103,5 +103,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
         dragItem.sprite = null;
         dragItem.gameObject.SetActive(false);
         dragSlot = null;
+
+        dragItem.raycastTarget = true;
     }
 }
