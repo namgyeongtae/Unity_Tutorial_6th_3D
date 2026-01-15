@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 public class PoolManager : SingletonCore<PoolManager>
 {
     public ObjectPool<GameObject> pool;
+    
     public GameObject prefab;
 
     protected override void Awake()

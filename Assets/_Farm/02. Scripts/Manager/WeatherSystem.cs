@@ -28,7 +28,6 @@ public class WeatherSystem : MonoBehaviour
             
             weatherType = (WeatherType)ranIndex;
             weatherChanged?.Invoke(weatherType);
-            Debug.Log($"현재 날씨는 {weatherType}입니다.");
             yield return new WaitForSeconds(10f);
         }
     }
