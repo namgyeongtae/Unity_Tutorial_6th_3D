@@ -1,5 +1,4 @@
 using System.Collections;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Tile : MonoBehaviour
@@ -19,7 +18,7 @@ public class Tile : MonoBehaviour
         if (isCreate)
             return;
 
-        cropObj = Instantiate(cropPrefab);
+        cropObj = PoolManager.Instance.GetObject(cropPrefab.name);
 
         cropObj.transform.SetParent(transform);
         cropObj.transform.localPosition = Vector3.zero;
@@ -45,7 +44,9 @@ public class Tile : MonoBehaviour
             if (crop.cropState == Crop.CropState.Level3)
             {
                 isCreate = false;
-                Destroy(cropObj);
+                
+                string cropName = cropObj.name.Replace("(Clone)", "");
+                PoolManager.Instance.ReleaseObject(cropName, cropObj);
 
                 StartCoroutine(HarvestRoutine());
             }
@@ -58,7 +59,8 @@ public class Tile : MonoBehaviour
 
         for (int i = 0; i < randomAmount; i++)
         {
-            GameObject fruitObj = Instantiate(fruitPrefab);
+            GameObject fruitObj = PoolManager.Instance.GetObject(fruitPrefab.name);
+            
             fruitObj.transform.position = transform.position + Vector3.up * 0.5f;
             Rigidbody fruitRb = fruitObj.GetComponent<Rigidbody>();
 
