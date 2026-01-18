@@ -19,6 +19,8 @@ public class Quest : IObserver
     {
         if (questName == QuestName && !IsCompleted)
         {
+            CurrentCount++;
+
             if (CurrentCount >= data.requestCount)
             {
                 IsCompleted = true;
