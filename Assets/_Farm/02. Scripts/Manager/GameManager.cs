@@ -6,10 +6,21 @@ public class GameManager : SingletonCore<GameManager>
     [SerializeField] private GameObject[] characterPrefabs;
     [SerializeField] private Transform spawnPoint;
     
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         int index = DataManager.Instance.SelectCharacterIndex;
 
-        Instantiate(characterPrefabs[index], spawnPoint.position, Quaternion.identity);
+        GameObject character = Instantiate(characterPrefabs[index], spawnPoint.position, Quaternion.identity);
+
+        DataManager.Instance.Player = character;
+
+    }
+
+    void Start()
+    {
+        // 캐릭터 생성 이후에 카메라 속성 설정
+        CameraManager.onSetProperty?.Invoke(DataManager.Instance.Player.transform);
     }
 }

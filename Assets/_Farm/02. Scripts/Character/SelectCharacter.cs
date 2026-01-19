@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Farm
@@ -84,7 +85,7 @@ namespace Farm
             FadeEvent.fadeAction?.Invoke(3f, Color.black, true);
             yield return new WaitForSeconds(3f);
             
-            Debug.Log("씬 전환");
+            SceneManager.LoadScene(2);
         }
     }
 }
